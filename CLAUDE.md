@@ -1,5 +1,10 @@
 # FocusCraft GTD System - Claude AI Guide
 
+**Version**: 0.9.1
+**Last Updated**: 2025-10-26
+
+A comprehensive GTD (Getting Things Done) system powered by Claude AI agents. This system provides complete automation for task collection, preparation, prioritization, and execution.
+
 ## Quick Reference
 
 ### Slash Commands
