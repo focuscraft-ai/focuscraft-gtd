@@ -106,11 +106,15 @@ Specialized agents handle specific types of tasks independently, preserving main
 
 **task-preparer** - Task quality reviewer
 - **Purpose**: Review tasks for clarity and completeness
-- **Capabilities**: Analyze Tasks/Next.md, identify improvements
+- **Capabilities**: Analyze Tasks/Next.md, identify improvements, suggest project promotions
+- **Used by**: `/prepare-tasks` command
+- **Agent file**: `.claude/agents/task-preparer.md`
 
 **prioritizer** - Priority recommender
 - **Purpose**: Suggest daily priorities based on context
-- **Capabilities**: Analyze calendar, energy, urgency, duration
+- **Capabilities**: Analyze calendar, energy, urgency, duration; generate daily focus lists
+- **Used by**: `/prioritize-tasks` command
+- **Agent file**: `.claude/agents/prioritizer.md`
 
 **meeting-prep** - Meeting agenda preparer (Hybrid mode)
 - **Purpose**: Prepare meeting agendas for today's meetings
