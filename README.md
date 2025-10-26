@@ -2,9 +2,9 @@
 
 **Version 0.9.1** | [Documentation](CLAUDE.md) | [Installation](#installation)
 
-**A complete Getting Things Done (GTD) system for Obsidian powered by Claude Code.**
+**A complete Getting Things Done (GTD) system powered by Claude Code.**
 
-Works out-of-the-box with file-based inboxes. Optionally enhance with MCP integrations for calendar, email, and more.
+Works with any markdown editor (Obsidian, VS Code, Typora, or any text editor). File-based by default, optionally enhance with MCP integrations for calendar, email, and more.
 
 ---
 
@@ -20,14 +20,23 @@ Works out-of-the-box with file-based inboxes. Optionally enhance with MCP integr
 
 ## Quick Start (5 Minutes)
 
-### 1. Open This Vault in Obsidian
+### 1. Open This Vault in Your Markdown Editor
 
+**Option A: Obsidian** (Recommended for GTD features)
 ```bash
-# If you have Obsidian installed:
 open -a Obsidian "/path/to/focuscraft-gtd"
 ```
-
 Or: File → Open Vault → Select this folder
+
+**Option B: VS Code**
+```bash
+code "/path/to/focuscraft-gtd"
+```
+Or: File → Open Folder → Select this folder
+
+**Option C: Any Other Editor**
+- Typora, Sublime Text, Vim, Emacs, Zettlr, or any markdown editor
+- Just open the folder and edit .md files directly
 
 ### 2. Try the File-Based System
 
@@ -515,7 +524,7 @@ All workflows are documented in `CLAUDE.md`. Modify them to match your:
 ## Credits
 
 - **GTD Method**: David Allen
-- **Obsidian**: Excellent knowledge base platform
+- **Obsidian**: Excellent knowledge base platform (recommended but not required)
 - **Claude Code**: AI-powered automation
 - **You**: For choosing to take control of your tasks
 
@@ -529,7 +538,7 @@ This vault structure and workflows are provided as-is for personal and commercia
 
 **Ready to get started?**
 
-1. Open this vault in Obsidian
+1. Open this vault in your markdown editor (Obsidian, VS Code, or any editor)
 2. Run `/scan-inboxes` to see it work
 3. Check `CLAUDE.md` for deep understanding
 4. Build your productivity system!
