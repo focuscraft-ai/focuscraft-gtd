@@ -1,8 +1,20 @@
 # FocusCraft GTD System
 
+**Version 0.9.1** | [Documentation](CLAUDE.md) | [Installation](#installation)
+
 **A complete Getting Things Done (GTD) system for Obsidian powered by Claude Code.**
 
 Works out-of-the-box with file-based inboxes. Optionally enhance with MCP integrations for calendar, email, and more.
+
+---
+
+## Key Features
+
+- **Automated Inbox Processing** - Scan emails, meetings, and tasks automatically
+- **AI-Powered Prioritization** - Get daily recommendations based on context and energy
+- **Meeting Preparation** - Agendas ready before every meeting
+- **Task Execution** - Autonomous agents that complete tasks for you
+- **Zero Configuration** - Works immediately with file-based mode
 
 ---
 
