@@ -255,16 +255,38 @@ Then run `/scan-inboxes` to process everything!
 
 MCP (Model Context Protocol) lets Claude Code connect to external services. It's **completely optional** - the system works great without it.
 
+**Want to unlock the full power of FocusCraft? Add MCP servers!**
+
+MCP servers enable live integrations with your tools, making the system even more powerful. The good news: **you can add them instantly** using Claude Code's built-in MCP support.
+
+**Official Documentation**: [How to Add MCP Servers to Claude Code](https://docs.claude.com/en/docs/claude-code/mcp)
+
 ### Why Add MCP?
 
 **File-based mode is fully functional**, but MCP adds:
-- Live calendar integration (no manual Daily note updating)
-- Automatic email scanning (no manual file creation)
-- Direct Reminders app integration
-- Confluence/Jira task reading
-- Real-time data instead of manual file updates
+- **Live calendar integration** - Auto-read your calendar (no manual Daily note updating)
+- **Automatic email scanning** - Scan real inbox (no manual file creation)
+- **Direct Reminders app integration** - Sync with macOS Reminders
+- **Confluence/Jira task reading** - Pull tasks directly from Atlassian
+- **Real-time data** - Work with live data instead of manual file updates
+
+### Which Agents Benefit from MCP?
+
+| Agent | Without MCP | With MCP |
+|-------|-------------|----------|
+| **email-scanner** | Scans `Inbox/emails/` files | Scans live Microsoft 365 inbox |
+| **meeting-prep** | Reads Daily/ notes for meetings | Reads live calendar via MS Graph |
+| **inbox-scanner** | Scans `Inbox/tasks/` files | Reads macOS Reminders app |
+| **meeting-scanner** | Scans `Inbox/meetings/` files | Can access Confluence meeting notes |
+| **execute-task** | Uses vault files only | Can search emails, check calendar, read Confluence |
+
+**All agents automatically detect MCP and use it when available. No configuration changes needed!**
 
 ### How to Add MCP
+
+**Quick Start**: Follow the [official Claude Code MCP documentation](https://docs.claude.com/en/docs/claude-code/mcp) for step-by-step setup.
+
+**Basic Steps**:
 
 1. **Open Claude Code Settings**
    - Click gear icon
@@ -320,6 +342,8 @@ Example configurations (add to MCP settings):
    - Run `/scan-inboxes` - if emails are scanned, email MCP works!
 
 **All agents automatically detect MCP and use it if available. Zero configuration changes needed.**
+
+**Need help setting up MCP?** Check the [official documentation](https://docs.claude.com/en/docs/claude-code/mcp) for detailed instructions and troubleshooting.
 
 ---
 

@@ -62,6 +62,8 @@ A comprehensive GTD (Getting Things Done) system powered by Claude AI agents. Th
 
 **IMPORTANT**: All agents are designed to work in BOTH modes. They try MCP tools first, fall back to file scanning if MCP unavailable.
 
+**Adding MCP Servers**: Follow the [official Claude Code MCP documentation](https://docs.claude.com/en/docs/claude-code/mcp) to instantly add MCP servers and unlock live integrations. See [Optional: MCP Integration](#optional-mcp-integration) section below for details.
+
 ## Slash Commands
 
 Custom slash commands are defined in `.claude/commands/` directory. Each command is a markdown file that references workflows documented in CLAUDE.md.
@@ -725,6 +727,8 @@ MCP (Model Context Protocol) allows Claude Code to connect to external services 
 - Atlassian (Confluence, Jira)
 - macOS Reminders
 
+**Official Documentation**: [How to Add MCP Servers to Claude Code](https://docs.claude.com/en/docs/claude-code/mcp)
+
 ### Why Add MCP?
 
 **File-based mode is fully functional**, but MCP adds:
@@ -734,9 +738,28 @@ MCP (Model Context Protocol) allows Claude Code to connect to external services 
 - Confluence/Jira task reading
 - Real-time data instead of manual file updates
 
+### Which Agents Benefit from MCP?
+
+**Inbox Processing**:
+- **email-scanner**: Live MS Graph email scanning vs. Inbox/emails/ files
+- **inbox-scanner**: macOS Reminders integration vs. Inbox/tasks/ files
+- **meeting-scanner**: Confluence meeting access vs. Inbox/meetings/ files
+
+**Meeting Management**:
+- **meeting-prep**: Live calendar reading vs. Daily/ note entries
+- **execute-task**: Email/calendar/Confluence context vs. vault-only context
+
+**All agents automatically detect MCP and use it when available. No configuration changes needed.**
+
 ### How to Add MCP
 
-See README.md for detailed MCP setup instructions.
+**Quick Start**: Follow the [official Claude Code MCP documentation](https://docs.claude.com/en/docs/claude-code/mcp) for step-by-step setup instructions.
+
+**Summary**:
+1. Open Claude Code Settings → MCP Servers tab
+2. Add MCP server configurations (see README.md for examples)
+3. Authenticate with services (OAuth flow)
+4. Test with `/check-calendar` or `/scan-inboxes`
 
 **Key point**: All agents work in both modes. They try MCP first, fall back to files automatically.
 
