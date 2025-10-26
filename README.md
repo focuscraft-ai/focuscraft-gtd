@@ -1,10 +1,34 @@
 # FocusCraft GTD System
 
-**Version 0.9.1** | [Documentation](CLAUDE.md) | [Installation](#installation)
+**Version 0.9.1** | [Documentation](CLAUDE.md) | [Get License](#get-license)
 
-**A complete Getting Things Done (GTD) system powered by Claude Code.**
+**AI Chief of Staff that saves managers 6 hours/week**
 
-Works with any markdown editor (Obsidian, VS Code, Typora, or any text editor). File-based by default, optionally enhance with MCP integrations for calendar, email, and more.
+Complete GTD system powered by Claude Code. Scans inboxes, clarifies tasks, recommends priorities, executes work autonomously. Built by a manager of 100+ people who uses it daily.
+
+**💾 Source-available** (code visible, license required to use) | **🔒 100% local processing** (privacy-first)
+
+---
+
+## 📦 Get License
+
+This code is source-available for transparency and auditability. **License required to use.**
+
+### Personal Use
+**Pay What You Want** (Suggested €149, minimum €0)
+
+For personal productivity, hobbies, non-work tasks.
+
+**[Get Personal License →](https://focuscraft.lemonsqueezy.com/buy/16734b49-2ccc-4c06-9918-123a01993cbe)**
+
+### Commercial Use
+**€299 per user** (One-time payment)
+
+For work, business, managing teams. **ROI in less than one working day** (6 hours/week saved).
+
+**[Get Commercial License →](https://focuscraft.lemonsqueezy.com/buy/e62bba46-d88f-4312-8b8d-d3d761c2222a)**
+
+**Need 5+ licenses?** Email support@focuscraft.io for bulk pricing.
 
 ---
 
