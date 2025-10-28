@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FocusCraft AI - Your AI Chief of Staff | Get 6 Hours Back Every Week</title>
+    <meta name="description" content="AI-powered task management for managers. Save 6 hours weekly on inbox processing, meeting prep, and task organization. Built by a manager of 100+ people.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="https://raw.githubusercontent.com/focuscraft-ai/focuscraft-gtd/main/brand/focuscraft-favicon-32x32.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --deep-blue: #2563EB;
+            --cyan: #06B6D4;
+            --gray-900: #111827;
+            --gray-800: #1F2937;
+            --gray-700: #374151;
+            --gray-600: #4B5563;
+            --gray-500: #6B7280;
+            --gray-400: #9CA3AF;
+            --gray-300: #D1D5DB;
+            --gray-200: #E5E7EB;
+            --gray-100: #F3F4F6;
+            --gray-50: #F9FAFB;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--gray-800);
+            background-color: var(--white);
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: var(--gray-900);
+        }
+
+        h2 {
+            font-size: 2.25rem;
+            color: var(--gray-900);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--gray-800);
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--gray-700);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        header {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--gray-200);
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--gray-900);
+        }
+
+        .logo-icon {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--deep-blue);
+        }
+
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.875rem 1.75rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.2s;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--deep-blue);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: #1D4ED8;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--cyan);
+            color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: #0891B2;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--deep-blue);
+            border-color: var(--deep-blue);
+        }
+
+        .btn-outline:hover {
+            background: var(--deep-blue);
+            color: var(--white);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #F9FAFB 0%, #E5E7EB 100%);
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-subheadline {
+            font-size: 1.25rem;
+            color: var(--gray-700);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .hero-note {
+            display: inline-block;
+            background: var(--white);
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            border: 1px solid var(--gray-300);
+            font-size: 0.95rem;
+            color: var(--gray-700);
+            margin-top: 1rem;
+        }
+
+        /* ROI Box */
+        .roi-box {
+            background: var(--white);
+            border: 2px solid var(--deep-blue);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            margin-top: 2rem;
+            text-align: left;
+        }
+
+        .roi-box h3 {
+            color: var(--deep-blue);
+            margin-bottom: 1rem;
+        }
+
+        .roi-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .roi-stat {
+            text-align: center;
+        }
+
+        .roi-stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--deep-blue);
+        }
+
+        .roi-stat-label {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+
+        .section-alt {
+            background: var(--gray-50);
+        }
+
+        /* Timeline */
+        .timeline {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            background: var(--white);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--deep-blue);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-badge {
+            display: inline-block;
+            background: var(--deep-blue);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-badge.future {
+            background: var(--cyan);
+        }
+
+        /* How It Works */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            text-align: center;
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 3rem;
+            height: 3rem;
+            background: var(--deep-blue);
+            color: var(--white);
+            border-radius: 50%;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        /* Pricing */
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: var(--white);
+            border: 2px solid var(--gray-200);
+            border-radius: 0.75rem;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .pricing-card:hover {
+            border-color: var(--deep-blue);
+            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--deep-blue);
+            background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+        }
+
+        .pricing-badge {
+            display: inline-block;
+            background: var(--deep-blue);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--deep-blue);
+            margin: 1rem 0;
+        }
+
+        .pricing-note {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--gray-200);
+            color: var(--gray-700);
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-features li::before {
+            content: "✓";
+            color: var(--deep-blue);
+            font-weight: 700;
+            margin-right: 0.75rem;
+        }
+
+        /* Table */
+        .comparison-table {
+            width: 100%;
+            margin: 3rem 0;
+            border-collapse: collapse;
+            background: var(--white);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1rem 1.5rem;
+            text-align: left;
+        }
+
+        .comparison-table thead {
+            background: var(--gray-900);
+            color: var(--white);
+        }
+
+        .comparison-table tbody tr:nth-child(even) {
+            background: var(--gray-50);
+        }
+
+        .comparison-table tbody tr:hover {
+            background: var(--gray-100);
+        }
+
+        .comparison-table td:first-child {
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        .comparison-table .time-before {
+            color: var(--gray-600);
+        }
+
+        .comparison-table .time-after {
+            color: var(--deep-blue);
+            font-weight: 600;
+        }
+
+        .comparison-table .time-saved {
+            color: #059669;
+            font-weight: 700;
+        }
+
+        /* FAQ */
+        .faq-item {
+            background: var(--white);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid var(--gray-200);
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 0.75rem;
+        }
+
+        .faq-answer {
+            color: var(--gray-700);
+            margin: 0;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--gray-900);
+            color: var(--gray-400);
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: var(--gray-400);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--gray-800);
+            padding-top: 1.5rem;
+            text-align: center;
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.75rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .hero-cta .btn {
+                width: 100%;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+
+            .comparison-table {
+                font-size: 0.875rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <span class="logo-icon">⚡</span>
+                    <span class="logo-text">FocusCraft AI</span>
+                </a>
+                <a href="https://github.com/focuscraft-ai/focuscraft-gtd" class="btn btn-outline">View on GitHub</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Get 6 Hours Back Every Week.<br>Your AI Chief of Staff.</h1>
+                <p class="hero-subheadline">
+                    I manage 100+ people. FocusCraft saves me 6 hours weekly on inbox processing, meeting prep, and task management.
+                    <strong>Built by a skeptic who didn't believe AI could handle real management work - until it did.</strong>
+                </p>
+
+                <div class="hero-cta">
+                    <a href="https://github.com/focuscraft-ai/focuscraft-gtd" class="btn btn-primary">Download from GitHub</a>
+                    <a href="mailto:support@focuscraft.io?subject=Launch Notification Request" class="btn btn-secondary">Get Launch Notification</a>
+                </div>
+
+                <p class="hero-note">
+                    <strong>Pre-launch:</strong> v0.9.1 available now on GitHub (honor system).
+                    Payment processing activating soon. Join waitlist for launch notification.
+                </p>
+
+                <div class="roi-box">
+                    <h3>ROI at Typical Manager Rates (€100/hour)</h3>
+                    <div class="roi-stats">
+                        <div class="roi-stat">
+                            <div class="roi-stat-value">6 hrs</div>
+                            <div class="roi-stat-label">Weekly time saved</div>
+                        </div>
+                        <div class="roi-stat">
+                            <div class="roi-stat-value">€31,200</div>
+                            <div class="roi-stat-label">Annual value</div>
+                        </div>
+                        <div class="roi-stat">
+                            <div class="roi-stat-value">€299</div>
+                            <div class="roi-stat-label">License cost (one-time)</div>
+                        </div>
+                        <div class="roi-stat">
+                            <div class="roi-stat-value">10,400%</div>
+                            <div class="roi-stat-label">Annual ROI</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Honest Story -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>I Was Skeptical Too</h2>
+                <p>As a manager of 100+ people, I spent <strong>6 hours every week</strong> on routine overhead. Now this system handles it in 1 hour total.</p>
+            </div>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Activity</th>
+                        <th>Before FocusCraft</th>
+                        <th>With FocusCraft</th>
+                        <th>Time Saved</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Inbox processing</td>
+                        <td class="time-before">30 min/day</td>
+                        <td class="time-after">5 min/day</td>
+                        <td class="time-saved">25 min</td>
+                    </tr>
+                    <tr>
+                        <td>Meeting prep</td>
+                        <td class="time-before">15 min/day</td>
+                        <td class="time-after">2 min/day</td>
+                        <td class="time-saved">13 min</td>
+                    </tr>
+                    <tr>
+                        <td>Task organization</td>
+                        <td class="time-before">10 min/day</td>
+                        <td class="time-after">2 min/day</td>
+                        <td class="time-saved">8 min</td>
+                    </tr>
+                    <tr>
+                        <td>Finding context</td>
+                        <td class="time-before">15 min/day</td>
+                        <td class="time-after">3 min/day</td>
+                        <td class="time-saved">12 min</td>
+                    </tr>
+                    <tr>
+                        <td>Priority decisions</td>
+                        <td class="time-before">10 min/day</td>
+                        <td class="time-after">2 min/day</td>
+                        <td class="time-saved">8 min</td>
+                    </tr>
+                    <tr style="font-weight: 700; background: var(--gray-100);">
+                        <td>Total Weekly</td>
+                        <td class="time-before">6.7 hours</td>
+                        <td class="time-after">1.2 hours</td>
+                        <td class="time-saved">5.5 hours</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p style="text-align: center; margin-top: 2rem; font-size: 1.25rem; color: var(--gray-700);">
+                <strong>That's 5.5 hours back every week. Forever.</strong>
+            </p>
+        </div>
+    </section>
+
+    <!-- The Vision -->
+    <section class="section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Vision: Where We're Going</h2>
+                <p>This is just the beginning. FocusCraft is evolving from task assistant to autonomous Chief of Staff.</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="timeline-badge">Available Now - v0.9.1</span>
+                    <h3>"Make Work Faster"</h3>
+                    <p>Scan all your inboxes (email, meetings, notes from ANY tool - just export to markdown). AI extracts tasks, clarifies what matters, recommends daily priorities.</p>
+                    <p><strong>Time saved:</strong> 2-3 hours → 15 minutes per day</p>
+                    <p><strong>Your role:</strong> Active participant, AI assists</p>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="timeline-badge future">Coming Q1 2026 - v1.1-1.3</span>
+                    <h3>"AI Drafts, You Approve"</h3>
+                    <p>The system prepares drafts for you:</p>
+                    <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+                        <li>Email responses ready for review</li>
+                        <li>Meeting agendas pre-populated</li>
+                        <li>Document templates filled in</li>
+                        <li>You read, tweak, send</li>
+                    </ul>
+                    <p><strong>Time saved:</strong> Another 1-2 hours per day</p>
+                    <p><strong>Your role:</strong> Editor and decision-maker</p>
+                    <p><strong>Note:</strong> Free updates for v1.x license holders</p>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="timeline-badge future">Future - v2.0+ (2026-2027)</span>
+                    <h3>"Your AI Works While You Sleep"</h3>
+                    <p>Imagine: You wake up, open your workspace, and see:</p>
+                    <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+                        <li>Inbox already scanned</li>
+                        <li>Drafts already written</li>
+                        <li>Meetings already prepped</li>
+                        <li>Tasks already prioritized</li>
+                        <li><strong>All waiting for your approval</strong></li>
+                    </ul>
+                    <p>The system learned your patterns. It knows what you'd say. It anticipates needs before you ask.</p>
+                    <p>You review (10-15 min), approve what works, adjust what doesn't. Then focus on strategic thinking - the work only YOU can do.</p>
+                    <p><strong>Vision:</strong> 80% of management overhead handled autonomously</p>
+                    <p><strong>Your role:</strong> Supervisor and strategist</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works Today (v0.9.1)</h2>
+                <p>Simple file-based system. No cloud dependencies. Complete control.</p>
+            </div>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Drop Files in Inbox</h3>
+                    <p>Export from any tool → markdown format → drop in <code>Inbox/</code> folders. Emails, meeting notes, Slack messages, Notion pages - anything.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Run /scan-inboxes</h3>
+                    <p>AI agents read your files, extract tasks, identify projects automatically.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Review in Tasks/Next.md</h3>
+                    <p>Everything organized, clarified, ready to prioritize. Single source of truth.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Get Daily Priorities</h3>
+                    <p>Run <code>/prioritize-tasks</code> - AI recommends what to focus on based on your context, energy, and calendar.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h3>Execute</h3>
+                    <p>Work through priorities. System handles the organization. You handle the thinking.</p>
+                </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 3rem;">
+                <strong>Total setup time:</strong> 5 minutes<br>
+                <strong>Daily time saved:</strong> 2-3 hours
+            </p>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>Pricing</h2>
+                <p>One-time payment. Free v1.x updates forever. No subscriptions.</p>
+            </div>
+
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <div class="pricing-badge">Personal Use</div>
+                    <h3 class="pricing-title">Pay What You Want</h3>
+                    <div class="pricing-price">€0-€149</div>
+                    <p class="pricing-note">Suggested: €149</p>
+                    <p>Using FocusCraft for personal productivity, hobbies, or non-work tasks?</p>
+                    <ul class="pricing-features">
+                        <li>Complete GTD system</li>
+                        <li>AI task extraction</li>
+                        <li>Daily priority recommendations</li>
+                        <li>v1.x updates free forever</li>
+                        <li>Draft prep (coming Q1 2026)</li>
+                    </ul>
+                    <a href="https://github.com/focuscraft-ai/focuscraft-gtd" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Get Personal License</a>
+                    <p style="font-size: 0.875rem; color: var(--gray-600); margin-top: 1rem;">
+                        <strong>Pre-launch:</strong> Download from GitHub now (honor system). Get license when payment processing activates.
+                    </p>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Commercial Use</div>
+                    <h3 class="pricing-title">Fixed Price</h3>
+                    <div class="pricing-price">€299</div>
+                    <p class="pricing-note">Per user, one-time</p>
+                    <p>Using FocusCraft for work, managing teams, or professional productivity?</p>
+                    <ul class="pricing-features">
+                        <li><strong>ROI: Pays for itself Day 1</strong></li>
+                        <li>6 hours back every week (forever)</li>
+                        <li>v1.x updates free forever</li>
+                        <li>Proper invoice with EU VAT</li>
+                        <li>Commercial license terms</li>
+                        <li>Quarterly feature releases</li>
+                    </ul>
+                    <a href="https://github.com/focuscraft-ai/focuscraft-gtd" class="btn btn-secondary" style="width: 100%; margin-top: 1rem;">Get Commercial License</a>
+                    <p style="font-size: 0.875rem; color: var(--gray-700); margin-top: 1rem;">
+                        <strong>Break-even:</strong> 3 hours of use (achieved Day 1)<br>
+                        <strong>Annual ROI:</strong> 10,400%
+                    </p>
+                </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 3rem; font-size: 1.1rem;">
+                <strong>Which license do you need?</strong> Simple rule: If it helps you with your job → Commercial license.<br>
+                Based on <em>use</em>, not who pays.
+            </p>
+
+            <p style="text-align: center; margin-top: 1rem;">
+                <strong>Need licenses for your team?</strong> <a href="mailto:support@focuscraft.io" style="color: var(--deep-blue);">Contact us</a> for bulk pricing (5+ users).
+            </p>
+        </div>
+    </section>
+
+    <!-- Built Different -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>Built Different</h2>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                <div>
+                    <h3>By A Real Manager</h3>
+                    <ul style="padding-left: 1.5rem; color: var(--gray-700);">
+                        <li>Manager of 100+ people at engineering company</li>
+                        <li>Uses this system daily in actual chaos</li>
+                        <li>Not theory - battle-tested in real world</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3>For Real Managers</h3>
+                    <ul style="padding-left: 1.5rem; color: var(--gray-700);">
+                        <li>Features driven by actual needs, not speculation</li>
+                        <li>Your efficiency gains = my gains</li>
+                        <li>Tested on real teams, real projects, real deadlines</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3>Honest Development</h3>
+                    <ul style="padding-left: 1.5rem; color: var(--gray-700);">
+                        <li>Quarterly release commitment</li>
+                        <li>Transparent roadmap (won't overpromise)</li>
+                        <li>Source-available code (see what you're getting)</li>
+                        <li>Built in public, GitHub Discussions open</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3>Local-First, Privacy-Safe</h3>
+                    <ul style="padding-left: 1.5rem; color: var(--gray-700);">
+                        <li>All processing on your machine</li>
+                        <li>No cloud dependencies</li>
+                        <li>Your data never leaves your computer</li>
+                        <li>You're in complete control</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Is this just another task manager?</div>
+                <div class="faq-answer">No. This is an AI system that learns GTD methodology and applies it for you. It's not a list app - it's an intelligent assistant that processes chaos into clarity.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Why should I trust the vision?</div>
+                <div class="faq-answer">Because I'm building it for myself first. Every feature exists because I need it for managing 100+ people. If it works in my chaos, it'll work in yours.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What if development slows down?</div>
+                <div class="faq-answer">I use this daily. Development might slow but never stops. Source-available code means you can see I'm active. Quarterly releases are committed.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I really get it for €0?</div>
+                <div class="faq-answer">Yes, if it's personal use. I want this accessible. But if you find value, paying forward helps fund development. And if your company is paying, the commercial license (€299) is fair for the ROI.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What about updates?</div>
+                <div class="faq-answer">All v1.x updates free forever (draft prep, MCP integrations, improvements). When v2.0 launches (autonomous intelligence), existing customers get 50% off.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How do I know which license I need?</div>
+                <div class="faq-answer">Simple: If you're using it for work → Commercial. If personal hobbies/life → Personal. Based on USE, not who pays.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section style="background: linear-gradient(135deg, var(--deep-blue) 0%, var(--cyan) 100%); color: var(--white); text-align: center;">
+        <div class="container">
+            <h2 style="color: var(--white);">Ready to Stop Drowning in Management Overhead?</h2>
+            <p style="color: var(--white); font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.95;">
+                v0.9.1 available now. Payment processing activating soon.
+            </p>
+
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="https://github.com/focuscraft-ai/focuscraft-gtd" class="btn" style="background: var(--white); color: var(--deep-blue);">Download from GitHub</a>
+                <a href="mailto:support@focuscraft.io?subject=Launch Notification Request" class="btn btn-outline" style="border-color: var(--white); color: var(--white);">Get Launch Notification</a>
+            </div>
+
+            <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.9;">
+                <strong>Questions?</strong> support@focuscraft.io or <a href="https://github.com/focuscraft-ai/focuscraft-gtd/discussions" style="color: var(--white); text-decoration: underline;">GitHub Discussions</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>FocusCraft AI</h4>
+                    <p>Local, privacy-first AI productivity tools for managers.</p>
+                    <p style="margin-top: 1rem;">Built with evidence, not hype.<br>By managers, for managers.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://github.com/focuscraft-ai/focuscraft-gtd">GitHub Repository</a></li>
+                        <li><a href="https://github.com/focuscraft-ai/focuscraft-gtd#readme">Documentation</a></li>
+                        <li><a href="https://github.com/focuscraft-ai/focuscraft-gtd/discussions">Discussions</a></li>
+                        <li><a href="https://github.com/focuscraft-ai/focuscraft-gtd/issues">Report Issue</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:support@focuscraft.io">Support</a></li>
+                        <li><a href="https://github.com/focuscraft-ai/focuscraft-gtd/blob/main/LICENSE-PERSONAL.md">Personal License</a></li>
+                        <li><a href="https://github.com/focuscraft-ai/focuscraft-gtd/blob/main/LICENSE-COMMERCIAL.md">Commercial License</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://github.com/focuscraft-ai">GitHub</a></li>
+                        <li><a href="mailto:support@focuscraft.io">Email</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 FocusCraft AI. Source-available commercial license. 100% local processing. Quarterly releases.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
