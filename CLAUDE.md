@@ -179,13 +179,63 @@ Tasks in `Tasks/Next.md` are organized by context:
 ### Task Metadata Format
 
 ```markdown
-- [ ] Clear, actionable task description
-  - Due: YYYY-MM-DD or "None"
-  - Duration: 10min, 30min, 1hr, 2hr (estimate)
-  - Energy: high/medium/low
-  - Source: [Where this task came from]
-  - Person: [[People/username]] (if related to someone)
-  - Note: Additional context
+- [ ] Clear, actionable task description #project_tag #other_tags
+  - Due:: YYYY-MM-DD or "None"
+  - Duration:: 10min, 30min, 1hr, 2hr (estimate)
+  - Energy:: high/medium/low
+  - Source:: [Where this task came from]
+  - Person:: [[People/username]] (if related to someone)
+  - Note:: Additional context
+```
+
+### Task Title Patterns
+
+**Action-Oriented** (good examples):
+```markdown
+✅ GOOD:
+- [ ] Draft email to John about Q1 planning
+- [ ] Schedule meeting with Sarah for budget review
+- [ ] Review and approve marketing proposal
+
+❌ BAD (too vague):
+- [ ] John email (draft, reply, or read?)
+- [ ] Sarah (what about Sarah?)
+- [ ] Marketing (what action?)
+```
+
+**Waiting Tasks**:
+```markdown
+- [ ] WAITING: [Person] to [action] #waiting
+- [ ] WAITING: Client approval on proposal #project_tag #waiting
+```
+
+### Energy Level Guidelines
+
+**High Energy** (deep work, strategic thinking):
+- Complex analysis and strategic planning
+- Creative work and important decisions
+- Writing proposals or detailed documents
+- Requires focus and mental clarity
+
+**Medium Energy** (focused work):
+- Email drafting and meeting preparation
+- Review and feedback tasks
+- Routine problem-solving
+- Standard communications
+
+**Low Energy** (administrative):
+- Data entry and email triage
+- File organization
+- Quick follow-ups
+- Simple communications
+
+### Completion Markers
+
+**When task is complete**:
+```markdown
+- [x] Task description #tags ✅ YYYY-MM-DD
+  - Completed:: Brief outcome or deliverable link
+  - (keep all original metadata for reference)
 ```
 
 ### Project vs Task Decision
@@ -206,10 +256,69 @@ Tasks in `Tasks/Next.md` are organized by context:
 
 Each project should include these sections:
 
-- **Tasks** - Organized by category with checkboxes and completion dates
-- **Log** - Chronological updates and decisions
 - **Information** - Project context, requirements, and key details
+- **Log** - Chronological updates and decisions
 - **Related Links** - Relevant resources and references
+
+**Note**: Tasks should NOT be tracked in project files. All actionable tasks belong in `Tasks/Next.md` with project tags (see Project Task Integration below).
+
+---
+
+## Project Task Integration
+
+**Important Rule**: All project tasks must appear in `Tasks/Next.md` with project tag for visibility.
+
+**Why**: Projects maintain planning information (context, goals, history), but next actions must be visible in the daily GTD system for execution.
+
+### Project Tag System
+
+**Every project gets a unique tag** in snake_case format.
+
+**Master list**: `Projects/PROJECT-TAGS.md`
+
+**Examples**:
+- Q1 Planning → #q1_planning
+- Website Redesign → #website
+- Team Onboarding → #onboarding
+
+### How It Works
+
+**When Creating a Project**:
+1. Create project folder: `Projects/[Project Name]/`
+2. Generate project tag (snake_case format)
+3. Add to `Projects/PROJECT-TAGS.md` master list
+4. Use consistently for all project tasks
+
+**When Creating Tasks for Project**:
+- Add tag inline in task title: `- [ ] Task description #project_tag`
+- Write task to `Tasks/Next.md` (not in project file)
+- Project files contain Information, Log, Related Links only (NO task checkboxes)
+
+**Finding Project Tasks**:
+- Obsidian: Click tag or search `tag:#project_tag`
+- Grep: `grep "#project_tag" Tasks/Next.md`
+- Claude Code: `Grep pattern="#project_tag" path="Tasks/Next.md"`
+
+### Single Source of Truth
+
+**Key principle**: Tasks live ONLY in Tasks/Next.md
+
+**Project files contain**:
+- Information (context, requirements, notes)
+- Log (chronological history, decisions)
+- Related Links (reference materials)
+- **NO task checkboxes** (eliminates duplication)
+
+**All actionable work** → Tasks/Next.md with project tag
+
+### Benefits
+
+✅ **GTD compliant** - Next actions visible in trusted system
+✅ **No duplication** - Tasks exist once, tagged with project
+✅ **Searchable** - Fast filtering by project
+✅ **Prioritizer compatible** - Can see all project work
+✅ **Simple** - Just add a tag, no complex automation
+✅ **Scalable** - Works for 10 or 100 projects
 
 ## Person Pages Workflow
 
