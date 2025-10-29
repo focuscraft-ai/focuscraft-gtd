@@ -19,14 +19,14 @@ This code is source-available for transparency and auditability. **License requi
 
 For personal productivity, hobbies, non-work tasks.
 
-**[Get Personal License →](https://focuscraft.lemonsqueezy.com/buy/16734b49-2ccc-4c06-9918-123a01993cbe)**
+**[Get Personal License →](https://focuscraft.lemonsqueezy.com/buy/3710cab5-3c72-4cbe-ba9b-770d1f4ebe25)**
 
 ### Commercial Use
 **€299 per user** (One-time payment)
 
 For work, business, managing teams. **ROI in less than one working day** (6 hours/week saved).
 
-**[Get Commercial License →](https://focuscraft.lemonsqueezy.com/buy/e62bba46-d88f-4312-8b8d-d3d761c2222a)**
+**[Get Commercial License →](https://focuscraft.lemonsqueezy.com/buy/5bf67e32-3f7d-4f90-84c1-9f61bca72a1d)**
 
 **Need 5+ licenses?** Email support@focuscraft.io for bulk pricing.
 
