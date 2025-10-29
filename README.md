@@ -10,7 +10,7 @@ Complete GTD system powered by Claude Code. Scans inboxes, clarifies tasks, reco
 
 ---
 
-## 📦 Get License
+## Get License
 
 This code is source-available for transparency and auditability. **License required to use.**
 
