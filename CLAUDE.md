@@ -727,6 +727,110 @@ This is the **recommended daily workflow** for managing all tasks using the GTD 
 
 ---
 
+### Next Item Workflow
+
+**Workflow Name**: "Next Item Workflow"
+**Slash Command**: `/next-item [low|mid|high]`
+
+**Purpose**: Show the single highest-priority actionable task at the specified energy level. Use when you have unexpected free time, events are cancelled, or you're working late and want to know "what should I do right now?"
+
+**Parameters**:
+- `low` (default) - Get next low-energy task
+- `mid` - Get next medium-energy task
+- `high` - Get next high-energy task
+
+**Sequence**:
+
+1. **Get fresh date/time context**:
+   - Run: `date +"%Y-%m-%d %A %H:%M:%S"` to get current system time
+   - Parse: current date (YYYY-MM-DD), day of week, time (HH:MM:SS)
+   - Store for use in priority sorting and context detection
+   - **Why**: Session may have started days ago; always use fresh date for accurate calculations
+
+2. **Parse energy level**:
+   - If parameter provided: Use it (low/mid/high)
+   - If no parameter: Default to "low"
+   - Map: low → Low, mid → Medium, high → High
+
+3. **Detect current context** (using fresh date/time from step 1):
+   - Monday-Friday 6am-6pm → @office
+   - Evening/weekend → @home
+   - If user working on @claude tasks → @claude
+   - Note: This is a preference, not a hard filter
+
+4. **Read Tasks/Next.md** and filter:
+   - Exclude completed tasks ([x])
+   - Exclude #waiting tasks (can't act on them)
+   - Match energy level (exact match preferred, close match if none available)
+   - Prefer tasks from current context (but include all if no context match)
+
+5. **Sort by priority** (using fresh date from step 1 for calculations):
+   - **Overdue** (task due date < current date) - HIGHEST PRIORITY
+   - **Due today** (task due date = current date)
+   - **Due this week** (task due date <= current date + 7 days)
+   - **No due date**
+   - Within each group: Prefer project-tagged tasks (strategic work)
+
+6. **Select TOP task** (first after sorting)
+
+7. **Format output**:
+   ```markdown
+   ## Next Item (Low Energy, @office context)
+
+   [Full task with all metadata]
+
+   **Why this task**:
+   - [Primary reason: Overdue/Due today/Strategic project work]
+   - Matches your low energy level
+   - [Context match or fallback reason]
+   - [Duration insight: "Quick 15min win" or "2hr deep work"]
+
+   **Suggested action**: Run `/execute-task [task description]` to have AI handle this autonomously.
+
+   Or work on it directly.
+   ```
+
+8. **Handle edge cases**:
+   - **No tasks at that energy** → "No [energy] energy tasks available. Try `/next-item [other-energy]` or run `/prioritize-tasks` for full view."
+   - **All tasks are WAITING** → "All actionable tasks are WAITING on others. Check WAITING items for follow-ups?"
+   - **No tasks at all** → "All caught up! No pending tasks in Next.md."
+
+**Interaction Style**:
+- **Focused**: Show one task only (not a list)
+- **Contextual**: Explain WHY this task (due date, energy match, context)
+- **Actionable**: Suggest /execute-task for automation
+- **Respectful**: If no tasks, simple message (no celebration or commentary)
+
+**Example Interaction**:
+```
+User: "/next-item"
+Claude:
+## Next Item (Low Energy, @office context)
+
+- [ ] Review quarterly budget proposal #q1_planning
+  - Due:: 2025-11-15
+  - Duration:: 1hr
+  - Energy:: high
+
+Note: No low-energy tasks available in @office context.
+This is the highest-priority high-energy task.
+
+**Why this task**:
+- Due this week (strategic deadline approaching)
+- Project work (Q1 planning)
+- Falls back to higher energy (no low-energy tasks available)
+
+**Suggested action**: Run `/execute-task Review quarterly budget proposal` to have AI help with analysis.
+
+Or work on it directly.
+```
+
+**Purpose**: Quick answer to "what should I do right now?" when you have unexpected free time or want to context-switch efficiently.
+
+**Time saved**: Eliminates decision paralysis (30s-2min deciding what to work on)
+
+---
+
 ## File-Based Inbox System
 
 ### How It Works

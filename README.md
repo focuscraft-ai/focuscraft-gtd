@@ -1,6 +1,6 @@
 # FocusCraft GTD System
 
-**Version 0.9.2** | [Documentation](CLAUDE.md) | [Get License](#get-license)
+**Version 0.9.3** | [Documentation](CLAUDE.md) | [Get License](#get-license)
 
 **AI Chief of Staff that saves managers 6 hours/week**
 
