@@ -1,0 +1,43 @@
+# FocusCraft GTD - Sync Ignore File
+#
+# Patterns to exclude from sync between personal and product vault
+# One pattern per line, supports wildcards (*)
+
+# Personal data folders
+Daily/*
+People/*
+Projects/*
+Inbox/*
+Archive/*
+Drafts/*
+Sessions/*
+
+# Obsidian configuration
+.obsidian/*
+.smart-env/*
+.copilot-index/*
+
+# Company-specific agents
+.claude/agents/confluence-scanner.md
+.claude/agents/session-memory.md
+
+# Personal commands
+.claude/commands/export-session.md
+.claude/commands/save-session-memory.md
+.claude/commands/scan-confluence.md
+.claude/commands/scan-reminders.md
+.claude/commands/update-meetings.md
+
+# Example files (until sanitized)
+Templates/*
+
+# Private files
+*.private.*
+*secret*
+*credentials*
+
+# Logs and temp files
+sync-log.txt
+.DS_Store
+*.swp
+*.tmp

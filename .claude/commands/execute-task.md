@@ -1,17 +1,14 @@
-Execute the "Execute Task Workflow" using the execute-task agent as defined in CLAUDE.md.
+**ACTION REQUIRED**: Use the Task tool to invoke the execute-task agent immediately.
+
+Do NOT wait for automatic execution. Invoke the agent now.
+
+**Agent**: execute-task
+**Subagent type**: execute-task
+**Purpose**: Autonomously execute a task from Next.md with full context gathering
 
 **Usage**: `/execute-task [task description or number]`
 
 **Examples**:
-- `/execute-task Draft email to John about project status`
-- `/execute-task 5` (task #5 from Tasks/Next.md)
-- `/execute-task Prepare Q review agenda for Sarah`
-
-**What it does**:
-1. Finds the task in Tasks/Next.md
-2. Gathers context from vault, emails, meetings, documents
-3. Creates deliverables (emails, documents, analysis)
-4. Updates task status (COMPLETE, REVIEW, BLOCKED, WAITING)
-5. Reports what was created and next steps
-
-**Agent**: execute-task (autonomous execution)
+- `/execute-task Draft email to Benjamin about hiring proposal`
+- `/execute-task #15` (task number from list)
+- `/execute-task Prepare Q review agenda for Gregor`
