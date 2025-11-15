@@ -1,10 +1,10 @@
 # FocusCraft GTD System
 
-**Version 0.9.3** | [Documentation](CLAUDE.md) | [Get License](#get-license)
+**Version 1.0.0** | [Documentation](CLAUDE.md) | [Get License](#get-license)
 
-**AI Chief of Staff that saves managers 6 hours/week**
+**AI Chief of Staff for busy managers using Claude Code**
 
-Complete GTD system powered by Claude Code. Scans inboxes, clarifies tasks, recommends priorities, executes work autonomously. Built by a manager of 100+ people who uses it daily.
+Complete GTD system that streamlines daily overhead. Scans inboxes, clarifies tasks, recommends priorities, executes work autonomously. Early Access - battle-tested by real managers in production.
 
 **💾 Source-available** (code visible, license required to use) | **🔒 100% local processing** (privacy-first)
 
@@ -24,7 +24,7 @@ For personal productivity, hobbies, non-work tasks.
 ### Commercial Use
 **€299 per user** (One-time payment)
 
-For work, business, managing teams. **ROI in less than one working day** (6 hours/week saved).
+For work, business, managing teams. **Streamlines daily overhead** - inbox processing, meeting prep, task organization.
 
 **[Get Commercial License →](https://focuscraft.lemonsqueezy.com/buy/5bf67e32-3f7d-4f90-84c1-9f61bca72a1d)**
 
@@ -421,7 +421,7 @@ You: [Starts working on top priority]
 ```
 
 **Time invested**: 15-20 minutes
-**Return**: Complete clarity on what to work on, all inboxes cleared
+**Return**: Complete clarity on priorities, all inboxes processed and cleared
 
 ---
 
@@ -517,7 +517,7 @@ All workflows are documented in `CLAUDE.md`. Modify them to match your:
 - ✅ **Automated** - Inboxes process themselves
 - ✅ **Intelligent** - Understands energy, time, context
 - ✅ **Dynamic** - Priorities adapt to your day
-- ✅ **Integrated** - Optional connections to your tools
+- ✅ **Integrated** - Built for Claude Code, optional MCP connections
 - ✅ **Transparent** - All data in readable markdown files
 - ✅ **Flexible** - Works file-based or MCP-enhanced
 

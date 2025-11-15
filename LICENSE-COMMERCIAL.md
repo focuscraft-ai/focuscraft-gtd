@@ -124,15 +124,15 @@ You MAY NOT:
 
 ---
 
-## Return on Investment
+## Value Proposition
 
-**Time savings**: 5-6 hours per week
-**Annual value**: €26,000-31,200 (at €100/hour manager rate)
-**License cost**: €299 (one-time)
-**Break-even**: Less than one working day
-**Annual ROI**: 8,700%-10,400%
+**What it does**: Streamlines daily management overhead - inbox processing, meeting prep, task organization
+**How it works**: AI-powered automation via Claude Code with local-first processing
+**License cost**: €299 (one-time payment)
+**Updates**: Free v1.x updates forever
+**Support**: Early Access - actively developed with quarterly releases
 
-This is likely your highest-ROI software investment this year.
+Built by busy managers, for busy managers using Claude Code.
 
 ---
 
